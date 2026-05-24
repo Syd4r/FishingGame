@@ -1,10 +1,12 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using BepInEx;
 using Mirror;
 using TMPro;
 using UnityEngine;
+using BepInEx;
 
 namespace MoreGamesBase
 {
@@ -564,6 +566,18 @@ namespace MoreGamesBase
             {
                 mainGameController.HandleFishCollision(col.gameObject);
             }
+        }
+    }
+}
+namespace FishingGameMod
+{
+    [BepInPlugin("com.Syd4r.fishinggame", "Fishing Game", "1.0.0")]
+    [BepInDependency("com.moregames.base", BepInDependency.DependencyFlags.HardDependency)]
+    public class FishingGamePlugin : BaseUnityPlugin
+    {
+        private void Awake()
+        {
+            Logger.LogInfo("Fishing Game Assembly loaded by BepInEx! Waiting for Base Loader...");
         }
     }
 }
